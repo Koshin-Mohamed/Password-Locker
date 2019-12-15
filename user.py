@@ -6,20 +6,16 @@ class User:
 
     user_list = [] # Empty user list
 
-    def __init__(self,account_type, email, username, password):
+    def __init__(self,username, password):
 
         """[summary]
         __init__ method that helps us define properties for our objects.
 
-        Arguments:
-            account_type: New user account type being saved.
-            email : New user email.
+        Args:
             username: New user username.
             password : New user password.
         """
 
-        self.account_type = account_type
-        self.email = email
         self.username = username
         self.password = password
 
@@ -31,12 +27,5 @@ class User:
 
         User.user_list.append(self)
 
-    def delete_user(self):
-
-        '''
-        delete_user method deletes a saved user from the user_list
-        '''
-
-        User.user_list.remove(self)
 
 

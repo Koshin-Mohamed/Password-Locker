@@ -15,7 +15,7 @@ class TestUsers(unittest.TestCase):
         '''
         Set up method to run before each test cases.
         '''
-        self.new_user = User("SnapChat","koshin.moh@gmail.com","k0sh1n","Pa$$w0rd") # create contact object
+        self.new_user = User("Koshin","Pa$$w0rd") # create contact object
 
 
     def test_init(self):
@@ -23,9 +23,7 @@ class TestUsers(unittest.TestCase):
         test_init test case to test if the object is initialized properly
         '''
 
-        self.assertEqual(self.new_user.account_type,"SnapChat")
-        self.assertEqual(self.new_user.email,"koshin.moh@gmail.com")
-        self.assertEqual(self.new_user.username,"k0sh1n")
+        self.assertEqual(self.new_user.username,"Koshin")
         self.assertEqual(self.new_user.password,"Pa$$w0rd")
 
     def tearDown(self):
@@ -48,7 +46,7 @@ class TestUsers(unittest.TestCase):
         object to the user_list
         """
         self.new_user.save_user()
-        test_user = User("Twitter", "test@test.com", "tweeter", "Test12") #new user
+        test_user = User("tweeter", "Test12") #new user
 
         test_user.save_user()
         self.assertEqual(len(User.user_list),2)
@@ -59,7 +57,7 @@ class TestUsers(unittest.TestCase):
         the user list
         """
         self.new_user.save_user()
-        test_user = User("Twitter", "test@test.com", "tweeter", "Test12") #new user
+        test_user = User("tweeter", "Test12") #new user
         test_user.save_user()
 
         self.new_user.delete_user() #delete new user
