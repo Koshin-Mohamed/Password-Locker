@@ -27,5 +27,18 @@ class User:
 
         User.user_list.append(self)
 
+    @classmethod
+    def auth_user(cls, username, password):
+
+        """
+        auth_user method checks if the user by username
+        """
+        for user in cls.user_list:
+            if user.username == username and user.password == password:
+                print("Login Successful")
+                return user
+            else:
+                print("either the username or password is wrong")
+
 
 
