@@ -2,6 +2,8 @@
 
 from user import User
 from credential import Credential
+import string
+import random
 
 def create_user(username, passoword):
     '''
@@ -10,6 +12,18 @@ def create_user(username, passoword):
     new_user = User(username, passoword)
     return new_user
 
+def save_user(user):
+    '''
+    Function to save user
+    '''
+    user.save_user()
+
+def find_user(username, password):
+    '''
+    Function that finds a credential by account type
+    '''
+    return User.login(username, password)
+
 def create_credential(account_type, account_username, account_passoword):
     '''
     Function to create a new credentials
@@ -17,11 +31,11 @@ def create_credential(account_type, account_username, account_passoword):
     new_user_cred = Credential(account_type, account_username, account_passoword)
     return new_user_cred
 
-def save_user(user):
+def generate_password(length = 8, char = string.ascii_letters + string.digits):
     '''
-    Function to save user
+    function that generates password for the user
     '''
-    user.save_user()
+    return ''.join(random.choice(char) for i in range(length))
 
 def save_credential(credential):
     '''
@@ -35,17 +49,11 @@ def del_credential(credential):
     '''
     credential.delete_credential()
 
-def find_user(username,password):
+def find_account_credentials(account_type):
     '''
-    Function that finds a user by username and returns the username
+    Function that finds a credential by account type
     '''
-    return User.locate_user(username, password)
-
-def check_existing_user(username, password):
-    '''
-    Function that check if a user exists with that username and return a Boolean
-    '''
-    return User.user_exist(username, password)
+    return Credential.find_by_account_type(account_type)
 
 def display_credentials():
     '''
