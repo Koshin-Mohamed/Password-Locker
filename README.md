@@ -1,5 +1,5 @@
-# Password-Locker App | 16/12/2019
-#### by Koshin | Github: https://github.com/Koshin-Mohamed
+# Password-Locker App 
+#### by Koshin | 16/12/2019
 
 #### Description
 Password-Locker is an app to help manage all your password storage needs with the added benefit of  computer generated passwords if required.
