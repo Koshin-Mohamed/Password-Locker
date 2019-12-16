@@ -9,16 +9,18 @@ class Credential:
 
     credential_list = [] # Empty credential list
 
-    def __init__(self, account_username, account_password):
+    def __init__(self, account_type, account_username, account_password):
 
         """[summary]
           __init__ method that helps us define properties for our objects.
 
         Args:
+          account_type = account name of existing or future app
           account_username = username for existing username.
           account_password = password for existing account.
         """
 
+        self.account_type = account_type
         self.account_username = account_username
         self.account_password = account_password
 
