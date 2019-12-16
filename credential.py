@@ -31,7 +31,6 @@ class Credential:
         """
 
         Credential.credential_list.append(self)
-        Credential.gen_pass()
 
     def delete_credential(self):
 
@@ -49,9 +48,10 @@ class Credential:
         return cls.credential_list
 
     @classmethod
-    def gen_pass(cls, size = 8, char = string.ascii_letters + string.digits):
-
-        """
-          gen_pass method generates password objects into credential_list
-        """
-        return ''.join(random.choice(char) for i in range(size))
+    def find_by_account_type(cls,account_type):
+        '''
+        this method returns the password of the account type entered
+        '''
+        for credentials in cls.credential_list:
+            if credentials.account_type == account_type:
+                return credentials
