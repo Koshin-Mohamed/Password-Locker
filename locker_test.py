@@ -129,7 +129,7 @@ class TestCredential(unittest.TestCase):
         the credential list
         """
         self.new_credential.save_credential()
-        self.new_credential.delete_credential() #delete new user
+        self.new_credential.del_credential() #delete new user
         self.assertEqual(len(Credential.credential_list),0)
 
 if __name__ == '__main__':
