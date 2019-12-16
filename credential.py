@@ -31,6 +31,7 @@ class Credential:
         """
 
         Credential.credential_list.append(self)
+        Credential.gen_pass()
 
     def delete_credential(self):
 
@@ -39,6 +40,13 @@ class Credential:
         '''
 
         Credential.credential_list.remove(self)
+
+    @classmethod
+    def display_credentials(cls):
+        '''
+        display_credentials returns the credentials list
+        '''
+        return cls.credential_list
 
     @classmethod
     def gen_pass(cls, size = 8, char = string.ascii_letters + string.digits):

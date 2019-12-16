@@ -1,6 +1,4 @@
 import unittest
-import random
-import string
 
 from user import User
 from credential import Credential
