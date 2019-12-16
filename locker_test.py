@@ -100,9 +100,9 @@ class TestCredential(unittest.TestCase):
         Tests to check if we can store multiple credential
         """
         self.new_credential.save_credential()
-        test_credential = Credential("IG", "JCole", "ForestHillDrive") #new user
-
+        test_credential = Credential("Facebook", "JCole", "ForestHillDrive") #new user
         test_credential.save_credential()
+
         self.assertEqual(len(Credential.credential_list),2)
 
     def test_find_credential(self):
@@ -110,11 +110,10 @@ class TestCredential(unittest.TestCase):
         test enables user find the password of a specific account
         '''
         self.new_credential.save_credential()
-        test_credential = Credential("IG","JCole","ForestHillDrive")
-
+        test_credential = Credential("Facebook","JCole","ForestHillDrive")
         test_credential.save_credential()
 
-        find_credential = Credential.find_by_account_type("IG")
+        find_credential = Credential.find_by_account_type("Facebook")
         self.assertEqual(find_credential.account_password,test_credential.account_password)
 
     def test_display_all_credentials(self):
