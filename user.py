@@ -33,12 +33,33 @@ class User:
 
         """
             locate_by_user finds the user based on their username
+
+            Args:
+                username: username to search for
+
+            Returns :
+                Username of person that matches the username.
         """
+
         for user in cls.user_list:
             if user.username == username:
-                return True
-            else:
-                return False
+                return username
+
+    @classmethod
+    def user_exist(cls,username):
+        '''
+        Method that checks if a user exists from the user list.
+        Args:
+            username: username to search if it exists
+        Returns :
+            Boolean: True or false depending if the user exists
+        '''
+        for user in cls.user_list:
+            if user.username == username:
+                    return True
+
+        return False
+
 
     @classmethod
     def auth_user(cls, username, password):

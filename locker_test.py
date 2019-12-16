@@ -71,7 +71,37 @@ class TestUsers(unittest.TestCase):
         self.assertEqual(len(Credential.credential_list),1)
 
 
+    def test_locate_user_by_username(self):
+        '''
+        test to check if we can find a user by username and display information
+        '''
+        self.new_user.save_user()
+        test_user = User("Drake","scorpion") # new user
+        test_user.save_user()
 
+        found_user = User.locate_by_username("Drake")
+
+        self.assertEquals(found_user.password, test_user.password)
+
+    def test_contact_exists(self):
+        '''
+        test to check if we can return a Boolean  if we cannot find the user.
+        '''
+
+        self.new_user.save_user()
+        test_user = User("Drake","scorpion") # new user
+        test_user.save_user()
+
+        user_exists = User.user_exist("scorpion")
+
+        self.assertTrue(user_exists)
+
+    def test_display_all_credentials(self):
+        '''
+        method that returns a list of all credentials saved
+        '''
+
+        self.assertEqual(Credential.display_credentials(),Credential.credential_list)
 
 
 
