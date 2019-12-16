@@ -29,50 +29,14 @@ class User:
         User.user_list.append(self)
 
     @classmethod
-    def locate_by_username(cls, username):
-
-        """
-            locate_by_user finds the user based on their username
-
-            Args:
-                username: username to search for
-
-            Returns :
-                Username of person that matches the username.
-        """
-
-        for user in cls.user_list:
-            if user.username == username:
-                return username
-
-    @classmethod
-    def user_exist(cls,username):
+    def login(cls,username, password):
         '''
-        Method that checks if a user exists from the user list.
-        Args:
-            username: username to search if it exists
-        Returns :
-            Boolean: True or false depending if the user exists
+        Method that checks takes the username and password and enables login
         '''
         for user in cls.user_list:
-            if user.username == username:
+            if user.username == username and user.password == password:
                     return True
 
         return False
-
-
-    @classmethod
-    def auth_user(cls, username, password):
-
-        """
-        auth_user method checks if the name and password match
-        """
-        for user in cls.user_list:
-            if user.username == username and user.password == password:
-                print("Login Successful")
-                return user.username
-            else:
-                print("either the username or password is wrong")
-
 
 

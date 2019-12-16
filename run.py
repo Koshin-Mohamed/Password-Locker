@@ -35,17 +35,17 @@ def del_credential(credential):
     '''
     credential.delete_credential()
 
-def find_user(username):
+def find_user(username,password):
     '''
-    Function that finds a contact by username and returns the username
+    Function that finds a user by username and returns the username
     '''
-    return User.locate_by_username(username)
+    return User.locate_user(username, password)
 
-def check_existing_user(username):
+def check_existing_user(username, password):
     '''
-    Function that check if a contact exists with that username and return a Boolean
+    Function that check if a user exists with that username and return a Boolean
     '''
-    return User.user_exist(username)
+    return User.user_exist(username, password)
 
 def display_credentials():
     '''
